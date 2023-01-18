@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { text } from 'stream/consumers'
-import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,14 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 id="pageHeader">Enter your name below.</h1>
-        <div id="input1">
-          <form>
-            <input type="text" id="nameBox" name="nameBox"></input>
-            <input type="button" value="Submit" id="submitBox" name="submitBox"></input>
-          </form>
-          <Link href="/allUsers">View all users</Link>
-        </div>
+        <h1 id="pageHeader">All Previously Logged in Users:</h1>
       </main>
     </>
   )
