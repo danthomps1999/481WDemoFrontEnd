@@ -8,13 +8,16 @@ import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const submitUser = async () => {
-  //let value = document.getElementById("nameBox");
-  console.log();
-}
+
 
 export default function Home() {
   const [nameInput, setNameInput] = useState('');
+  const submitUser = async () => {
+    //let value = document.getElementById("nameBox");
+    const res = await fetch('http://localhost:8080/userNames/', 
+    {method: 'POST', body: JSON.stringify({nameInput})}
+    );
+  }
   return (
     <>
       <Head>
@@ -28,7 +31,7 @@ export default function Home() {
         <div id="input1">
           <form>
             <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)}></input>
-            <input type="button" value="Submit" id="submitBox" name="submitBox" onClick={submitUser()}></input>
+            <input type="button" value="Submit" id="submitBox" name="submitBox" onClick={submitUser}></input>
           </form>
           <h1>Hello { nameInput }</h1>
           <Link href="/allUsers">View all users</Link>
