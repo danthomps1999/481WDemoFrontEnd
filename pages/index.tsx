@@ -4,10 +4,17 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { text } from 'stream/consumers'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const submitUser = async () => {
+  //let value = document.getElementById("nameBox");
+  console.log();
+}
+
 export default function Home() {
+  const [nameInput, setNameInput] = useState('');
   return (
     <>
       <Head>
@@ -20,9 +27,10 @@ export default function Home() {
         <h1 id="pageHeader">Enter your name below.</h1>
         <div id="input1">
           <form>
-            <input type="text" id="nameBox" name="nameBox"></input>
-            <input type="button" value="Submit" id="submitBox" name="submitBox"></input>
+            <input type="text" value={nameInput} onChange={e => setNameInput(e.target.value)}></input>
+            <input type="button" value="Submit" id="submitBox" name="submitBox" onClick={submitUser()}></input>
           </form>
+          <h1>Hello { nameInput }</h1>
           <Link href="/allUsers">View all users</Link>
         </div>        
       </main>
