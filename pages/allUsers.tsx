@@ -3,10 +3,23 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { text } from 'stream/consumers'
+import { AppProps } from 'next/app'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const res = await fetch('http://localhost:8080/userNames/');
+  const data = await res.json();
+
+  console.log(data);
+
+  return {
+    props: { userNamesFromAPI: data}
+  }
+}
+
+//This is an implicit any error, doesn't have a direct effect
+export default function UserNames({ userNamesFromAPI }) {
   return (
     <>
       <Head>
@@ -17,7 +30,21 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1 id="pageHeader">All Previously Logged in Users:</h1>
+        <div>
+          <p>
+            { userNamesFromAPI.map(user => (
+              <div>
+                { user }
+              </div>
+            )
+              ) }
+          </p>
+        </div>
       </main>
     </>
   )
 }
+// UserNames.getIntialProps = asynch (ctx) => {
+//   const res = await fetch('http://localhost:8080/userNames/')
+//   return res
+// }

@@ -24,7 +24,7 @@ export default function Home() {
             <input type="button" value="Submit" id="submitBox" name="submitBox"></input>
           </form>
           <Link href="/allUsers">View all users</Link>
-        </div>
+        </div>        
       </main>
     </>
   )
