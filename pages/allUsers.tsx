@@ -33,7 +33,7 @@ export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string
         <div>
           <p>
             { userNamesFromAPI.map(user => (
-              <div>
+              <div key={user}>
                 { user }
               </div>
             )
