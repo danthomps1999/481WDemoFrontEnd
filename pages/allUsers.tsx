@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
 }
 
 //This is an implicit any error, doesn't have a direct effect
-export default function UserNames({ userNamesFromAPI }) {
+export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string[]}) {
   return (
     <>
       <Head>
