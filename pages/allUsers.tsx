@@ -8,7 +8,7 @@ import { AppProps } from 'next/app'
 const inter = Inter({ subsets: ['latin'] })
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:8080/userNames/');
+  const res = await fetch('http://44.201.183.105:8080/userNames/');
   const data = await res.json();
 
   console.log(data);
