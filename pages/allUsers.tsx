@@ -34,7 +34,7 @@ export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string
   )
 }
 export async function getServerSideProps(context:any) {
-  const res = await fetch('http://44.201.183.105:8080/userNames/');
+  const res = await fetch('https://44.201.183.105:8080/userNames/');
   const userNamesFromAPI = await res.json();
   return {
     props: { userNamesFromAPI }, // will be passed to the page component as props
