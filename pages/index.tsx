@@ -4,7 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { text } from 'stream/consumers'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +17,7 @@ export default function Home() {
     const res = await fetch('http://44.201.183.105:8080/userNames/', 
     {method: 'POST', body: JSON.stringify({nameInput})}
     );
+    console.log(res);
   }
   return (
     <>

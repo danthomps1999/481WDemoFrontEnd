@@ -7,17 +7,6 @@ import { AppProps } from 'next/app'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const getStaticProps = async () => {
-  const res = await fetch('http://44.201.183.105:8080/userNames/');
-  const data = await res.json();
-
-  console.log(data);
-
-  return {
-    props: { userNamesFromAPI: data}
-  }
-}
-
 //This is an implicit any error, doesn't have a direct effect
 export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string[]}) {
   return (
@@ -44,7 +33,10 @@ export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string
     </>
   )
 }
-// UserNames.getIntialProps = asynch (ctx) => {
-//   const res = await fetch('http://localhost:8080/userNames/')
-//   return res
-// }
+export async function getServerSideProps(context:any) {
+  const res = await fetch('http://44.201.183.105:8080/userNames/');
+  const userNamesFromAPI = await res.json();
+  return {
+    props: { userNamesFromAPI }, // will be passed to the page component as props
+  }
+}
