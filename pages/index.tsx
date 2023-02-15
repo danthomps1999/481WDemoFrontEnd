@@ -14,7 +14,7 @@ export default function Home() {
   const [nameInput, setNameInput] = useState('');
   const submitUser = async () => {
     //let value = document.getElementById("nameBox");
-    const res = await fetch('http://44.201.183.105:8080/userNames/', 
+    const res = await fetch('http://54.84.141.215:8080/userNames/', 
     {method: 'POST', body: JSON.stringify({nameInput}), mode:'cors'}
     );
     console.log(res);
