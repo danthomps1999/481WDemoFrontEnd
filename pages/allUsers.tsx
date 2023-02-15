@@ -34,7 +34,7 @@ export default function UserNames({ userNamesFromAPI }:{userNamesFromAPI: string
   )
 }
 export async function getServerSideProps(context:any) {
-  const res = await fetch('https://54.84.141.215:8080/userNames/');
+  const res = await fetch('https://www.colourswapper.com/userNames/');
   const userNamesFromAPI = await res.json();
   console.log(userNamesFromAPI);
   return {
